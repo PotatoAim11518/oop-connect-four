@@ -19,8 +19,24 @@ window.addEventListener('DOMContentLoaded', event => {
     clickTargetTurn.addEventListener("mouseenter", event => {
         event.target.classList.add('black');
     })
+
+    clickTargets.forEach( target => {
+      target.addEventListener('click', event => {
+        // match the click target's column number with the board square's column
+        let targetColumn = event.target.id[event.target.id.length - 1];
+        let targetSquare = document.getElementById(`square-5-${targetColumn}`);
+        let newDiv = document.createElement('div');
+        newDiv.setAttribute('class', 'token');
+        newDiv.setAttribute('class', 'black');
+        targetSquare.appendChild(newDiv);
+        // console.log()
+    })
+    })
+
     const boardSquares = document.getElementById("board-squares");
-    
+
+
+
 
 
 })
