@@ -1,19 +1,26 @@
 window.addEventListener('DOMContentLoaded', event => {
 
-  const clickTargets = document.querySelectorAll('.click-target');
+    let playerTurn = "black";
 
-  clickTargets.forEach( target => {
-    target.addEventListener('mouseenter', event => {
-      event.target.classList.add('full');
-    })
-    target.addEventListener('mouseleave', event => {
-      event.target.classList.remove('full');
-    })
+    const clickTargets = document.querySelectorAll('.click-target');
+    console.log(clickTargets);
+    //clickTargets.forEach(target => {
+    //    target.addEventListener('mouseenter', event => {
+    //        // Put column full logic here
+    //        event.target.classList.add('full');
+    //    })
+    //    target.addEventListener('mouseleave', event => {
+    //        // Put column full logic here
+    //        event.target.classList.remove('full');
+    //    })
+    //})
 
-    // .style.full.click-target:hover;
-  })
-  // listen to the column
-  // set a for each if the column is full
-      // if full, set the display of the target to disabled
-      //style.full.click-target:hover
+    const clickTargetTurn = document.getElementById("click-targets");
+    clickTargetTurn.addEventListener("mouseenter", event => {
+        event.target.classList.add('black');
+    })
+    const boardSquares = document.getElementById("board-squares");
+    
+
+
 })
