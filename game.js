@@ -7,6 +7,7 @@ export default class Game {
         this.player2 = player2;
         this.currentPlayer = 1;
         this.columns = [];
+        this.winnerNumber = 0;
 
         for (let i = 0; i < 7; i++) {
             this.columns.push(new Column());
@@ -30,6 +31,7 @@ export default class Game {
         } else {
             this.currentPlayer = 1;
         }
+        checkForTie();
     }
     getTokenAt(row, col) {
         // let token = this.columns[colIndex].getTokenAt(row);
@@ -39,5 +41,9 @@ export default class Game {
     isColumnFull(col) {
         return this.columns[col].isFull()
     }
-
+    checkForTie() {
+        for (column of this.columns) {
+            if (column.)
+        }
+    }
 }
