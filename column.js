@@ -1,27 +1,29 @@
 import Game from "./game.js";
 
 export default class Column {
-    constructor(array = [null, null, null, null, null, null]) {
-        this.array = array
+  constructor(array = [null, null, null, null, null, null]) {
+    this.array = array;
+  }
 
+  add(player) {
+    // stores the player in the bottom-most slot in the column
+
+    for (let i = this.array.length - 1; i >= 0; i--) {
+      if (this.array[i] === null) {
+        this.array[i] = player;
+        return;
+      }
     }
+  }
 
-    add(player) { // stores the player in the bottom-most slot in the column
+  getTokenAt(row) {
+    return this.array[row];
+  }
 
-        for (let i = this.array.length - 1; i >= 0; i--) {
-            if (this.array[i] === null) {
-                this.array[i] = player;
-                return;
-            }
-
-        }
-    }
-
-    getTokenAt(row) {
-        return this.array[row];
-    }
+  isFull() {
+      return this.array[0] !== null;
+  }
 }
-
 
 // column1 = {key: []} // as we add tokens, unshift new things in
 

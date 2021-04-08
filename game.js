@@ -36,4 +36,8 @@ export default class Game {
         return this.columns[col].getTokenAt(row);
     }
 
+    isColumnFull(col) {
+        return this.columns[col].isFull()
+    }
+
 }
