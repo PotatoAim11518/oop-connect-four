@@ -81,45 +81,4 @@ window.addEventListener("DOMContentLoaded", (event) => {
         updateUI();
     });
 
-    //const
-    //
-    //let playerTurn = "black";
-    //
-    //// create a game class
-    //// and a column class
-    //
-    //// Logic planning
-    //
-    //const clickTargets = document.querySelectorAll('.click-target');
-    //console.log(clickTargets);
-    ////clickTargets.forEach(target => {
-    ////    target.addEventListener('mouseenter', event => {
-    ////        // Put column full logic here
-    ////        event.target.classList.add('full');
-    ////    })
-    ////    target.addEventListener('mouseleave', event => {
-    ////        // Put column full logic here
-    ////        event.target.classList.remove('full');
-    ////    })
-    ////})
-    //
-    //
-    //clickTargets.forEach(target => {
-    //    target.addEventListener('click', event => {
-    //        // match the click target's column number with the board square's column
-    //        let targetColumn = event.target.id[event.target.id.length - 1];
-    //        let targetSquare = document.getElementById(`square-5-${targetColumn}`);
-    //        let newDiv = document.createElement('div');
-    //        newDiv.classList.add('token', 'black');
-    //        // newDiv.setAttribute('class', 'black');
-    //        targetSquare.appendChild(newDiv);
-    //        // console.log()
-    //    })
-    //})
-    //
-    //const boardSquares = document.getElementById("board-squares");
-    //
-    //
-    //
-    //
 });

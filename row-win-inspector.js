@@ -1,13 +1,6 @@
-import Column from "./column.js";
-
 export default class RowWinInspector {
   constructor(columns) {
     this.columns = columns;
-
-    // for (let i = 0; i < 4; i++) {
-    //   const colObj = new Column();
-    //   this.columns.push(colObj);
-    // }
   }
 
   inspect() {

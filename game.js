@@ -1,6 +1,7 @@
 import Column from "./column.js";
 import ColumnWinInspector from "./column-win-inspector.js";
 import RowWinInspector from "./row-win-inspector.js";
+import DiagonalWinInspector from "./diagonal-win-inspector.js";
 
 export default class Game {
 
@@ -58,7 +59,6 @@ export default class Game {
 
         for (let slice of colSlices) {
             let inspectSlice = new RowWinInspector(slice);
-            console.log(inspectSlice.inspect())
             if (inspectSlice.inspect() > 0) {
                 this.winnerNumber = inspectSlice.inspect();
                 break;
@@ -66,6 +66,22 @@ export default class Game {
         }
     }
 
+    checkForDiagonalWin() {
+        const colGroup_0_3 = this.columns.slice(0,4); // array of 4 Column objects containing an array of 6 values
+        const colGroup_1_4 = this.columns.slice(1,5);
+        const colGroup_2_5 = this.columns.slice(2,6);
+        const colGroup_3_6 = this.columns.slice(3);
+
+        const colSlices = [colGroup_0_3, colGroup_1_4, colGroup_2_5, colGroup_3_6]
+
+        for (let slice of colSlices) {
+            let inspectSlice = new DiagonalWinInspector(slice);
+            if (inspectSlice.inspect() > 0) {
+                this.winnerNumber = inspectSlice.inspect();
+                break;
+            }
+        }
+    }
 
     playInColumn(col) {
         this.columns[col].add(this.currentPlayer);
@@ -81,8 +97,9 @@ export default class Game {
             return
         } else {
             this.checkForColumnWin();
+            this.checkForRowWin();
+            this.checkForDiagonalWin()
         }
-        this.checkForRowWin();
 
     }
 
