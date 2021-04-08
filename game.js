@@ -20,19 +20,33 @@ export default class Game {
     }
 
     getName() {
-        return `${this.player1} vs. ${this.player2}`;
+        if (this.winnerNumber === 3) {
+            return `${this.player1} ties with ${this.player2}!`;
+        } else {
+            return `${this.player1} vs. ${this.player2}`;
+        }
+    }
+
+    checkForTie() {
+        for (let column of this.columns) {
+            if (!column.isFull()) {
+                return false;
+            }
+        }
+        this.winnerNumber = 3;
+        return true;
     }
 
     playInColumn(col) {
         this.columns[col].add(this.currentPlayer);
-
         if (this.currentPlayer === 1) {
             this.currentPlayer = 2;
         } else {
             this.currentPlayer = 1;
         }
-        checkForTie();
+        this.checkForTie();
     }
+
     getTokenAt(row, col) {
         // let token = this.columns[colIndex].getTokenAt(row);
         return this.columns[col].getTokenAt(row);
@@ -40,10 +54,5 @@ export default class Game {
 
     isColumnFull(col) {
         return this.columns[col].isFull()
-    }
-    checkForTie() {
-        for (column of this.columns) {
-            if (column.)
-        }
     }
 }
