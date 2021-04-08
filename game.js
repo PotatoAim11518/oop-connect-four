@@ -20,10 +20,14 @@ export default class Game {
 
     playInColumn() {
         const topBar = document.getElementById("click-targets");
-
         topBar.addEventListener("click", event => {
             let colIndex = event.target.id.slice("-")[1];
             this.columns[colIndex].add();
+
+            getTokenAt(row, col) {
+                let token = this.columns[colIndex]
+
+            }
         })
 
         if (this.currentPlayer === 1) {
@@ -32,4 +36,5 @@ export default class Game {
             this.currentPlayer = 1;
         }
     }
+
 }
