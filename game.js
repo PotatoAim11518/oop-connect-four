@@ -12,6 +12,10 @@ export default class Game {
                 this.columns.push(new Column());
             }
         })();
+        const topBar = document.getElementById("click-targets");
+        topBar.addEventListener("click", event => {
+            let colIndex = event.target.id.slice("-")[1];
+        })
     }
 
     getName() {
@@ -19,22 +23,17 @@ export default class Game {
     }
 
     playInColumn() {
-        const topBar = document.getElementById("click-targets");
-        topBar.addEventListener("click", event => {
-            let colIndex = event.target.id.slice("-")[1];
-            this.columns[colIndex].add();
-
-            getTokenAt(row, col) {
-                let token = this.columns[colIndex]
-
-            }
-        })
+        this.columns[colIndex].add();
 
         if (this.currentPlayer === 1) {
             this.currentPlayer = 2;
         } else {
             this.currentPlayer = 1;
         }
+    }
+    getTokenAt(row, col) {
+        // let token = this.columns[colIndex].getTokenAt(row);
+        return this.columns[col].getTokenAt(row);
     }
 
 }

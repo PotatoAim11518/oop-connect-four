@@ -48,6 +48,9 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
     const topBar = document.getElementById("click-targets");
     topBar.addEventListener("click", event => {
+        if (event.target.id.startsWith("column-")) {
+            
+        }
         game.playInColumn();
         updateUI();
     })
