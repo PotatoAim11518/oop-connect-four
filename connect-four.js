@@ -1,4 +1,4 @@
-import Game from "./game.columns";
+import Game from "./game.js";
 
 let game = undefined;
 
@@ -25,7 +25,7 @@ let updateUI = function () {
     }
 
     for (let row = 0; row < 6; row++) {
-        for (let column = 0; column <=6; column++) {
+        for (let column = 0; column <= 6; column++) {
             const square = document.getElementById(`square-${row}-${column}`);
             const token = game.getTokenAt(row, column);
             square.innerHTML = ''

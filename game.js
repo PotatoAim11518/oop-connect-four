@@ -9,7 +9,7 @@ export default class Game {
         this.columns = [];
 
         for (let i = 0; i < 7; i++) {
-                this.columns.push(new Column());
+            this.columns.push(new Column());
         }
 
         const topBar = document.getElementById("click-targets");
@@ -22,8 +22,8 @@ export default class Game {
         return `${this.player1} vs. ${this.player2}`;
     }
 
-    playInColumn() {
-        this.columns[colIndex].add();
+    playInColumn(col) {
+        this.columns[col].add(this.currentPlayer);
 
         if (this.currentPlayer === 1) {
             this.currentPlayer = 2;

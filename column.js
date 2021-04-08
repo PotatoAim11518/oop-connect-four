@@ -1,4 +1,4 @@
-// import Game from "./game.js";
+import Game from "./game.js";
 
 export default class Column {
     constructor(array = [null, null, null, null, null, null]) {
@@ -6,11 +6,12 @@ export default class Column {
 
     }
 
-    add() { // stores the player in the bottom-most slot in the column
+    add(player) { // stores the player in the bottom-most slot in the column
 
         for (let i = this.array.length - 1; i >= 0; i--) {
             if (this.array[i] === null) {
-                this.array[i] = game.currentPlayer;
+                this.array[i] = player;
+                return;
             }
 
         }
