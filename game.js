@@ -98,7 +98,7 @@ export default class Game {
         } else {
             this.checkForColumnWin();
             this.checkForRowWin();
-            this.checkForDiagonalWin()
+            this.checkForDiagonalWin();
         }
 
     }
