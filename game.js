@@ -1,4 +1,4 @@
-import Column from "./column";
+import Column from "./column.js";
 
 export default class Game {
 
@@ -7,11 +7,11 @@ export default class Game {
         this.player2 = player2;
         this.currentPlayer = 1;
         this.columns = [];
-        (function () {
-            for (let i = 0; i < 7; i++) {
+
+        for (let i = 0; i < 7; i++) {
                 this.columns.push(new Column());
-            }
-        })();
+        }
+
         const topBar = document.getElementById("click-targets");
         topBar.addEventListener("click", event => {
             let colIndex = event.target.id.slice("-")[1];
