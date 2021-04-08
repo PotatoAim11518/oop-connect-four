@@ -1,9 +1,17 @@
+import Column from "./column";
+
 export default class Game {
 
     constructor(player1, player2) {
         this.player1 = player1;
         this.player2 = player2;
         this.currentPlayer = 1;
+        this.columns = [];
+        (function () {
+            for (let i = 0; i < 7; i++) {
+                this.columns.push(new Column());
+            }
+        })();
     }
 
     getName() {
@@ -11,6 +19,13 @@ export default class Game {
     }
 
     playInColumn() {
+        const topBar = document.getElementById("click-targets");
+
+        topBar.addEventListener("click", event => {
+            let colIndex = event.target.id.slice("-")[1];
+            this.columns[colIndex].add();
+        })
+
         if (this.currentPlayer === 1) {
             this.currentPlayer = 2;
         } else {
