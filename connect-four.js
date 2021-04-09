@@ -1,4 +1,7 @@
 import Game from "./game.js";
+import GameJsonSerializer from "./game-JSON-serializer.js";
+import GameJsonDeserializer from "./game-JSON-deserializer.js";
+
 
 let game = undefined;
 
@@ -79,6 +82,10 @@ window.addEventListener("DOMContentLoaded", (event) => {
             game.playInColumn(number);
         }
         updateUI();
+
+        let gameJSON = new GameJsonSerializer(game);
+        localStorage.setItem('gameState', gameJSON.serialize());
+
     });
 
 });

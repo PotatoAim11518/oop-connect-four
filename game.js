@@ -85,26 +85,21 @@ export default class Game {
 
     playInColumn(col) {
         this.columns[col].add(this.currentPlayer);
+
+        this.checkForTie();
+        this.checkForColumnWin();
+        this.checkForRowWin();
+        this.checkForDiagonalWin();
+
         if (this.currentPlayer === 1) {
             this.currentPlayer = 2;
         } else {
             this.currentPlayer = 1;
         }
 
-        this.checkForTie();
-
-        if (this.winnerNumber !== 0) {
-            return
-        } else {
-            this.checkForColumnWin();
-            this.checkForRowWin();
-            this.checkForDiagonalWin();
-        }
-
     }
 
     getTokenAt(row, col) {
-        // let token = this.columns[colIndex].getTokenAt(row);
         return this.columns[col].getTokenAt(row);
     }
 
@@ -112,7 +107,7 @@ export default class Game {
         if (this.winnerNumber === 1 || this.winnerNumber === 2) {
             return true;
         }
-        return this.columns[col].isFull()
+        return this.columns[col].isFull();
     }
 
 }
